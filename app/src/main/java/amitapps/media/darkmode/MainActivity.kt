@@ -11,12 +11,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var darkModeButton: Button
     // Saving state of our app
     // using SharedPreferences
-    private val sharedPreferences: SharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE)
-    private val editor: SharedPreferences.Editor = sharedPreferences.edit()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         darkModeButton = findViewById(R.id.mode)
+        val sharedPreferences: SharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
 
         var isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false)
         // When user reopens the app
@@ -30,10 +31,10 @@ class MainActivity : AppCompatActivity() {
             darkModeButton.text = "Enable Dark Mode"
         }
 
-        activeDarkMode()
+        activeDarkMode(editor)
     }
 
-    private fun activeDarkMode() {
+    private fun activeDarkMode(editor: SharedPreferences.Editor) {
 
         darkModeButton.setOnClickListener {
             if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {

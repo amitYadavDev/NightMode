@@ -4,7 +4,7 @@
     <color name="textColor">#FFFFFFFF</color>
     <color name="textColor1">#03C37F</color>
     <color name="textColor2">#9DD161</color>
-    <color name="textColor3">#021917</color>
+    <color name="textColor3">#FFFFFFFF</color>
     <color name="btnColor">#B89837</color>
     <color name="btnColor1">#B54E2D</color>
 </resources>
